@@ -103,3 +103,97 @@ This project utilizes the following technologies:
 - **Redis**: An in-memory data store used for caching and improving application performance.
 
 - **Celery**: A distributed task queue system used for handling asynchronous tasks like email notifications and background processes.
+## Database Design
+
+The database consists of the following core entities with their relationships:
+
+### 1. Users
+**Fields:**
+- `id` (Primary Key)
+- `username` (Unique)
+- `email` (Unique)
+- `password` (Hashed)
+- `role` (Host/Guest)
+- `profile_image`
+
+**Relationships:**
+- A User can list **multiple** Properties (as a Host)
+- A User can make **multiple** Bookings (as a Guest)
+- A User can write **multiple** Reviews
+
+### 2. Properties
+**Fields:**
+- `id` (Primary Key)
+- `title`
+- `description`
+- `price_per_night`
+- `location` (City/Country)
+- `amenities` (JSON/Array)
+- `host_id` (Foreign Key → Users)
+
+**Relationships:**
+- Belongs to **one** User (Host)
+- Can have **multiple** Bookings
+- Can have **multiple** Reviews
+- Can have **multiple** Images
+
+### 3. Bookings
+**Fields:**
+- `id` (Primary Key)
+- `check_in_date`
+- `check_out_date`
+- `total_price`
+- `status` (Confirmed/Pending/Cancelled)
+- `guest_id` (Foreign Key → Users)
+- `property_id` (Foreign Key → Properties)
+
+**Relationships:**
+- Belongs to **one** User (Guest)
+- Belongs to **one** Property
+- Can have **one** associated Payment
+- Can have **one** Review
+
+### 4. Reviews
+**Fields:**
+- `id` (Primary Key)
+- `rating` (1-5)
+- `comment`
+- `created_at`
+- `guest_id` (Foreign Key → Users)
+- `property_id` (Foreign Key → Properties)
+- `booking_id` (Foreign Key → Bookings)
+
+**Relationships:**
+- Belongs to **one** User (Guest)
+- Belongs to **one** Property
+- Belongs to **one** Booking
+
+### 5. Payments
+**Fields:**
+- `id` (Primary Key)
+- `amount`
+- `payment_method`
+- `transaction_id`
+- `status` (Success/Failed/Pending)
+- `booking_id` (Foreign Key → Bookings)
+
+**Relationships:**
+- Belongs to **one** Booking
+
+### 6. PropertyImages
+**Fields:**
+- `id` (Primary Key)
+- `image_url`
+- `is_primary` (Boolean)
+- `property_id` (Foreign Key → Properties)
+
+**Relationships:**
+- Belongs to **one** Property
+Users
+│
+├─── Hosts Properties (1-to-Many)
+│    └─── Property has Bookings (1-to-Many)
+│         └─── Booking has Payment (1-to-One)
+│
+└─── Makes Bookings (1-to-Many)
+     └─── Booking has Review (1-to-One)
