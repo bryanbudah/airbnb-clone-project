@@ -234,3 +234,50 @@ Users
 ### 9. Admin Dashboard  
 - **Description**: Backend panel for moderating users, properties, bookings, and resolving disputes.  
 - **Purpose**: Ensures platform integrity and provides oversight for administrative tasks.
+## API Security
+
+To ensure the protection of sensitive data and maintain system integrity, the following security measures will be implemented:
+
+### 1. Authentication & Authorization
+- **JWT (JSON Web Tokens)**: Secure user sessions with token-based authentication. Tokens include expiration and user roles.
+- **OAuth 2.0**: Support for third-party logins (Google, Facebook) to streamline secure authentication.
+- **Role-Based Access Control (RBAC)**: Restrict API endpoints based on user roles (e.g., guests, hosts, admins).
+
+**Why It Matters**:  
+Prevents unauthorized access to user accounts and sensitive actions (e.g., modifying property listings or accessing payment data).
+
+### 2. Data Protection
+- **HTTPS/SSL**: Encrypt all API communications to prevent MITM attacks.
+- **Sensitive Data Encryption**: Encrypt PII (Personal Identifiable Information) and payment details at rest using AES-256.
+- **Input Sanitization**: Validate and sanitize all user inputs to prevent SQL injection and XSS attacks.
+
+**Why It Matters**:  
+Ensures compliance with privacy laws (GDPR, CCPA) and protects users from data breaches.
+
+### 3. Rate Limiting & Throttling
+- **API Rate Limits**: Restrict requests to 100/hour per IP for public endpoints and 1000/hour for authenticated users.
+- **DDoS Protection**: Use tools like Cloudflare to mitigate brute-force and volumetric attacks.
+
+**Why It Matters**:  
+Prevents abuse, reduces server load, and maintains availability for legitimate users.
+
+### 4. Payment Security
+- **PCI-DSS Compliance**: Process payments via Stripe/PayPal without storing raw card details.
+- **Idempotency Keys**: Ensure payment transactions cannot be duplicated accidentally or maliciously.
+
+**Why It Matters**:  
+Minimizes financial fraud risks and maintains trust in monetary transactions.
+
+### 5. Monitoring & Logging
+- **Audit Logs**: Record all sensitive actions (logins, payments, profile changes) for traceability.
+- **SIEM Integration**: Use tools like Splunk/Sentry to detect and alert suspicious activities in real-time.
+
+**Why It Matters**:  
+Enables rapid incident response and forensic analysis in case of breaches.
+
+### 6. CORS & CSRF Protection
+- **Strict CORS Policies**: Whitelist trusted domains for API access.
+- **CSRF Tokens**: Validate state-changing requests (e.g., bookings, payments) with anti-CSRF tokens.
+
+**Why It Matters**:  
+Blocks cross-origin attacks while maintaining frontend-backend interoperability.
