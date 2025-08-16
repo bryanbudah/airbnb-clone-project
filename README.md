@@ -80,3 +80,26 @@ This is a clone of the AirBnB web application, developed as part of the ALX Soft
 - Track progress and milestones
 - Manage stakeholder communication
 - Mitigate risks and resolve blockers
+## Technology Stack
+
+This project utilizes the following technologies:
+
+- **Django**: A high-level Python web framework used for building the backend RESTful APIs and handling server-side logic.
+  
+- **Django REST Framework**: A powerful toolkit built on top of Django for creating Web APIs, used to implement the REST API endpoints.
+
+- **PostgreSQL**: A relational database system used for persistent data storage, offering scalability and reliability for user and property data.
+
+- **GraphQL**: A query language for APIs that allows clients to request exactly the data they need, implemented to provide flexible data retrieval options alongside REST endpoints.
+
+- **React**: A JavaScript library for building user interfaces, used to create the interactive frontend components of the application.
+
+- **Next.js**: A React framework that enables server-side rendering and static site generation, used to improve performance and SEO.
+
+- **Docker**: A platform for containerization, used to package the application and its dependencies into containers for consistent deployment across environments.
+
+- **AWS (Amazon Web Services)**: Cloud services used for hosting the application, storing media files, and other infrastructure needs.
+
+- **Redis**: An in-memory data store used for caching and improving application performance.
+
+- **Celery**: A distributed task queue system used for handling asynchronous tasks like email notifications and background processes.
