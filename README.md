@@ -197,3 +197,40 @@ Users
 │
 └─── Makes Bookings (1-to-Many)
      └─── Booking has Review (1-to-One)
+     ## Feature Breakdown
+
+### 1. User Management
+- **Description**: Allows users to register, log in, and manage profiles (hosts/guests). Includes authentication, role-based permissions, and profile customization.  
+- **Purpose**: Forms the foundation for secure access, personalized experiences, and differentiation between hosts and guests.
+
+### 2. Property Management  
+- **Description**: Enables hosts to create, update, and delete property listings with details like location, pricing, amenities, and images.  
+- **Purpose**: Central to the marketplace, allowing hosts to showcase spaces and guests to discover accommodations.
+
+### 3. Booking System  
+- **Description**: Handles reservation workflows—check availability, book properties, and manage dates/pricing. Includes confirmation and cancellation logic.  
+- **Purpose**: Facilitates transactions between guests and hosts, ensuring seamless scheduling and conflict resolution.
+
+### 4. Reviews & Ratings  
+- **Description**: Lets guests leave ratings and comments for properties they’ve booked, and hosts to review guests.  
+- **Purpose**: Builds trust in the community by providing transparency and feedback loops.
+
+### 5. Search & Filters  
+- **Description**: Advanced search functionality with filters (price, location, amenities, dates) and sorting options.  
+- **Purpose**: Helps guests quickly find properties matching their preferences, improving user experience.
+
+### 6. Payment Processing  
+- **Description**: Integrates with payment gateways (e.g., Stripe) to handle secure transactions for bookings.  
+- **Purpose**: Ensures reliable and secure financial transactions between parties.
+
+### 7. Messaging System  
+- **Description**: In-app messaging for guests/hosts to communicate about bookings, questions, or special requests.  
+- **Purpose**: Enhances user interaction and reduces reliance on external communication tools.
+
+### 8. Notifications  
+- **Description**: Real-time alerts (email/in-app) for booking confirmations, messages, and reservation updates.  
+- **Purpose**: Keeps users informed and engaged with timely updates.
+
+### 9. Admin Dashboard  
+- **Description**: Backend panel for moderating users, properties, bookings, and resolving disputes.  
+- **Purpose**: Ensures platform integrity and provides oversight for administrative tasks.
