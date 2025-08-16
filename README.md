@@ -281,3 +281,25 @@ Enables rapid incident response and forensic analysis in case of breaches.
 
 **Why It Matters**:  
 Blocks cross-origin attacks while maintaining frontend-backend interoperability.
+## CI/CD Pipeline
+
+### What is CI/CD?
+CI/CD (Continuous Integration and Continuous Deployment) automates the process of testing, building, and deploying code changes.  
+- **Continuous Integration (CI)**: Automatically runs tests and checks whenever code is pushed to the repository.  
+- **Continuous Deployment (CD)**: Automatically deploys validated changes to production/staging environments.  
+
+### Why It Matters for This Project  
+1. **Faster Development Cycles**: Enables rapid iteration by catching bugs early and streamlining deployments.  
+2. **Consistent Quality**: Ensures every change meets test coverage and style guidelines before merging.  
+3. **Reliable Releases**: Reduces human error in deployment processes, critical for a booking-heavy platform like Airbnb.  
+
+### Tools & Workflow  
+- **GitHub Actions**: Configurable workflows to run tests (unit/integration), linting, and security scans on every push/pull request.  
+- **Docker**: Containerizes the application for consistent environments across development, testing, and production.  
+- **AWS CodeDeploy / Heroku**: Automatically deploys approved builds to staging/production servers.  
+- **SonarCloud**: Monitors code quality and security vulnerabilities in the pipeline.  
+
+### Example Pipeline Stages  
+1. **Test**: Run Django/Pytest suites and React Jest tests.  
+2. **Build**: Create Docker images for backend/frontend.  
+3. **Deploy**: Push to staging on success, with manual approval for production.  
